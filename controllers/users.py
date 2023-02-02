@@ -15,3 +15,11 @@ class Users:
 
         response = self.conn.execute(sql_statement)
         return Response_parser.post_item(response)
+
+
+    def get_all_users(self):
+        
+        sql_statement = f"SELECT * FROM users"
+
+        response = self.conn.execute(sql_statement)
+        return Response_parser.get_items(response)
