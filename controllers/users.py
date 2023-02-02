@@ -23,3 +23,11 @@ class Users:
 
         response = self.conn.execute(sql_statement)
         return Response_parser.get_items(response)
+
+
+    def get_one_user(self, user_id):
+        
+        sql_statement = f"SELECT * FROM users WHERE id = '{user_id}'"
+
+        response = self.conn.execute(sql_statement)
+        return Response_parser.get_items(response)

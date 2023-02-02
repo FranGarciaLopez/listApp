@@ -12,3 +12,8 @@ async def add_user_route(data: Dict[str, Any]  = {'name': 'John', 'surname': 'Do
 @app.get("/users", description="This endpoint gets all the users in the database")
 async def get_all_users_route():
     return await Users(engine).get_all_users()
+
+
+@app.get("/users/{user_id}", description="This endpoint get one user in the database")
+async def get_one_user_route(user_id: str):
+    return await Users(engine).get_one_user(user_id)
