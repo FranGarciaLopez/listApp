@@ -22,3 +22,8 @@ async def get_one_user_route(user_id: str):
 @app.put("/users/{user_id}", description="This endpoint updates one user in the database")
 async def get_one_user_route(user_id: str, data: Dict[str, Any]  = {'name': 'Parco', 'surname': 'Forglore', 'password': '1234'}):
     return await Users(engine).update_one_user(user_id, data)
+
+
+@app.delete("/users/{user_id}", description="This endpoint updates one user in the database")
+async def get_one_user_route(user_id: str):
+    return await Users(engine).delete_one_user(user_id)

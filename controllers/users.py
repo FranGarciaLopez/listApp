@@ -43,3 +43,11 @@ class Users:
 
         response = self.conn.execute(sql_statement)
         return Response_parser.update_item(response)
+
+
+    def delete_one_user(self, user_id):
+        
+        sql_statement = f"DELETE FROM users WHERE id = '{user_id}'"
+
+        response = self.conn.execute(sql_statement)
+        return Response_parser.delete_item(response)
