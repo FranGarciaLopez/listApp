@@ -31,3 +31,15 @@ class Users:
 
         response = self.conn.execute(sql_statement)
         return Response_parser.get_items(response)
+
+
+    def update_one_user(self, user_id, data):
+        
+        name = data['name']
+        surname = data['surname']
+        password = data['password']
+
+        sql_statement = f"UPDATE users SET name = '{name}', surname = '{surname}', password = '{password}' WHERE id = '{user_id}'"
+
+        response = self.conn.execute(sql_statement)
+        return Response_parser.update_item(response)
