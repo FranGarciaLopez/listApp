@@ -20,6 +20,7 @@ lib-cov
 
 # Coverage directory used by tools like istanbul
 venv/
+__pycache__
 coverage
 *.lcov
 
