@@ -6,4 +6,5 @@ COPY requirements.txt /listApp/requirements.txt
 WORKDIR ./listApp
 
 RUN pip3 install -r requirements.txt
+COPY ./listApp
 CMD ["uvicorn main:app"]
