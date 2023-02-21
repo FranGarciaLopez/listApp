@@ -1,4 +1,5 @@
 from lib.response_parser import Response_parser
+import bcrypt
 
 class Users:
     def __init__(self, conn):
@@ -11,7 +12,10 @@ class Users:
         surname = data['surname']
         password = data['password']
 
-        sql_statement = f"INSERT INTO users (name, surname, password) VALUES ('{name}','{surname}','{password}')"
+        salt = bcrypt.gensalt()
+        hashed_password = bcrypt.hashpw(password.encode('utf-8'), salt)
+
+        sql_statement = f"INSERT INTO users (name, surname, password) VALUES ('{name}','{surname}','{hashed_password.decode('utf-8')}')"
 
         response = self.conn.execute(sql_statement)
         return Response_parser.post_item(response)
@@ -38,8 +42,11 @@ class Users:
         name = data['name']
         surname = data['surname']
         password = data['password']
+        
+        salt = bcrypt.gensalt()
+        hashed_password = bcrypt.hashpw(password.encode('utf-8'), salt)
 
-        sql_statement = f"UPDATE users SET name = '{name}', surname = '{surname}', password = '{password}' WHERE id = '{user_id}'"
+        sql_statement = f"UPDATE users SET name = '{name}', surname = '{surname}', password = '{hashed_password}' WHERE id = '{user_id}'"
 
         response = self.conn.execute(sql_statement)
         return Response_parser.update_item(response)
