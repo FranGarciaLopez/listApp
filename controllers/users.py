@@ -23,7 +23,7 @@ class Users:
 
     def get_all_users(self):
         
-        sql_statement = f"SELECT * FROM users"
+        sql_statement = f"SELECT name, surname, id FROM users"
 
         response = self.conn.execute(sql_statement)
         return Response_parser.get_items(response)
@@ -31,7 +31,7 @@ class Users:
 
     def get_one_user(self, user_id):
         
-        sql_statement = f"SELECT * FROM users WHERE id = '{user_id}'"
+        sql_statement = f"SELECT name, surname, id FROM users WHERE id = '{user_id}'"
 
         response = self.conn.execute(sql_statement)
         return Response_parser.get_items(response)
