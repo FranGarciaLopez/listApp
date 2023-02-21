@@ -3,8 +3,8 @@
 FROM ubuntu:20.04
 RUN apt-get update && apt-get install -y python3 python3-dev python3-pip
 COPY requirements.txt /api/requirements.txt
-WORKDIR . /
+WORKDIR ./listApp
 
 RUN pip3 install -r requirements.txt
-COPY . /
+COPY ./listApp
 CMD ["uvicorn main:app"]
