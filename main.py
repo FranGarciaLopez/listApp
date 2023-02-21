@@ -7,7 +7,12 @@ from pathlib import Path
 from fastapi.staticfiles import StaticFiles
 import os
 
-SQLALCHEMY_DATABASE_URL = "postgresql://oqwtqlla:mpMVxj0eFbGdlNobU9tZvtGItafo9fho@dumbo.db.elephantsql.com/oqwtqlla"
+DB_USER = os.getenv("oqwtqlla")
+DB_PASSWORD = os.getenv("mpMVxj0eFbGdlNobU9tZvtGItafo9fho")
+DB_HOST = os.getenv("dumbo.db.elephantsql.com")
+DB_NAME = os.getenv("oqwtqlla")
+
+SQLALCHEMY_DATABASE_URL = f"postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}/{DB_NAME}"
 cwd = os.getcwd()
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
