@@ -74,6 +74,11 @@ header li a {
         font-size: 18px;
         justify-content: center;
     }
+    
+    .card {
+        padding: 10px;
+    }
+
 
     .img {
         max-width: 100%;
@@ -95,6 +100,10 @@ header li a {
         font-size: 24px;
         justify-content: center;
     }
+    
+    .card {
+        padding: 30px;
+    }
 
     .img {
         display: block;
@@ -103,3 +112,15 @@ header li a {
         height: auto;
     }
 }
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 3px solid #5C849B;
+    border-radius: 4px;
+    padding: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.94);
+    background-color: #5C849B;
+}
+
