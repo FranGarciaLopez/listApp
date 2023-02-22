@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://listapi-frangalo34.b4a.run/static/css/main.css">
+    <link rel="stylesheet" href="{{ url_for('static', path='css/main.css') }}">
     <title>Fastapi API</title>
 </head>
+
 <body>
     <header>
         <nav>
@@ -19,16 +21,17 @@
             </ul>
         </nav>
     </header>
-    <div>
+    <div class="container">
         <p>
-            This API has been built with the python framework Fastapi, 
-            if you want to try it, you can access to 
-            <a class="white-link" href="https://listapi-frangalo34.b4a.run/docs#/">swagger documentation</a>
+            This API has been built with the python framework Fastapi,
+            if you want to try it, you can access to
+            <a class="white-link" href="http://localhost:8000/docs#/">swagger documentation</a>
             and just, use it.
         </p>
     </div>
-    <div>
-        <img  class="img" src="{{ url_for('static', path='img/swagger.png') }}" alt="swagger logo">
+    <div class="image-container">
+        <img class="img" src="{{ url_for('static', path='img/swagger.png') }}" alt="swagger logo">
     </div>
 </body>
+
 </html>
